@@ -10,7 +10,7 @@ const ErrorHandler = require("../utils/errorHandler");
 exports.getProducts = catchAsyncError(
     async(req,res) => {
 
-        const resultPerPage = 30;
+        const resultPerPage = 12;
         const apifeatures = new ApiFeatures(Product.find().
         populate('group').populate('brand').populate('category').populate('subcategory')
         ,req.query).pagination(resultPerPage);
@@ -30,7 +30,7 @@ exports.getProductDetail = catchAsyncError(
         const category_id = await Category.find({name: category_name});
         
         const product_id = await Product.find({category: category_id[0]._id}).populate('category').populate('subcategory').populate('brand').populate('group');
-        
+
         console.log(product_id.length);
         if(product_id.length == 0){
             return next(new ErrorHandler("Product not found",404));

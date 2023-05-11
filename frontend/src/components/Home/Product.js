@@ -5,7 +5,7 @@ const options = {
     edit:false,
     color:"rgba(20,20,20,0.1)",
     activeColor:"tomato",
-    value:2.5,
+    value:4,
     isHalf:true,
     size : window.innerWidth < 600 ? 20 :25,
 }
@@ -19,7 +19,7 @@ const Product = ({product}) => {
         <p>{product.category.name}</p>
         <p>{product.subcategory.Sub_Category_name}</p>
         <div>
-            <ReactStars {...options} /> <span>(256 Reviews)</span>
+            <ReactStars {...options} />
         </div>
         <span>{product.price}</span>
     </div>
